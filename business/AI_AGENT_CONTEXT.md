@@ -26,3 +26,4 @@
 1. **Gunakan Stack Simpel & Cepat:** Utamakan arsitektur yang sudah ada (`Supabase / PostgreSQL`, `Node.js API`, `HTML/CSS/JS PWA`).
 2. **Prioritaskan Keamanan:** Selalu audit API Key, jangan pernah commit `.env` ke Git publik, terapkan RLS (Row Level Security) pada PostgreSQL.
 3. **Dokumentasikan Perubahan:** Setiap fitur baru harus dicatat dalam changelog dan diverifikasi terhadap *Scope of Work (SOW)* klien.
+4. **Konsistensi Visual:** Warna/identitas visual (gradient violet `#8b5cf6` → cyan `#38bdf8`, dark obsidian `#070b14`) selalu merujuk ke **`DESIGN_SYSTEM.md`** di root repo.

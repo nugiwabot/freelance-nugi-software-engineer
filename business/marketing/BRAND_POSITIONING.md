@@ -42,3 +42,11 @@
 * ❌ Dilarang mengaku *"Pasti Garansi Omzet Naik 500%"* (Gunakan: *"Menghilangkan potensi kebocoran leads 100%"*).
 * ❌ Dilarang mengaku *"Software House dengan 50 Tim Programmer"* (Posisikan diri secara jujur & bangga sebagai *Agile Solution Architect & AI Operator*).
 * ❌ Dilarang menjanjikan fitur yang belum pernah diuji secara teknis.
+
+---
+
+## 4. IDENTITAS VISUAL (RINGKAS)
+
+* Warna & tone seluruh aset brand mengikuti **`DESIGN_SYSTEM.md`** di root repo (satu sumber kebenaran).
+* Identitas: dark obsidian (`#070b14`) + gradient signature **violet `#8b5cf6` → cyan `#38bdf8`**.
+* Aturan anti "AI-generated look": tidak pakai emoji sebagai ikon (pakai SVG stroke), tidak cyan-only, tidak biru lama (`#3b82f6`/`#2563eb`).

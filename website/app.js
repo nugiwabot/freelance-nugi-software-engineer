@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.style.top = '100%';
         navMenu.style.left = '0';
         navMenu.style.width = '100%';
-        navMenu.style.background = 'rgba(8, 12, 20, 0.95)';
+        navMenu.style.background = 'rgba(12, 18, 32, 0.96)';
         navMenu.style.padding = '20px';
         navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
       }
