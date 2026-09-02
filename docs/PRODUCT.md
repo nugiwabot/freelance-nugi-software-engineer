@@ -34,3 +34,18 @@
 - Loader tracking hanya di index.html; subhalaman tidak akan mengirim event walau ID diisi.
 - `trackNugiEvent` berpotensi double-push ke dataLayer (gtag + push manual).
 - Nama brand tidak konsisten (NUGIPROPERTI / Nugi Digital Studio).
+
+## Matriks Kesiapan Jual (core workflow — detail di CLIENT_READINESS.md)
+| Item | Kategori |
+|---|---|
+| Lead masuk tersimpan ke DB; round-robin adil; notifikasi WA; follow-up tercatat; dashboard manager | **MUST WORK BEFORE SELLING** |
+| Auth+role (Admin/Manager/Sales); isolasi data antar-client; backup; export/handover | **MUST WORK BEFORE DEPLOYMENT** |
+| Polish dashboard, format pesan, export, mobile | **CAN BE FIXED DURING IMPLEMENTATION** |
+| CAPI/pixel konversi, reminder otomatis, unit booking | **CAN WAIT** |
+| SaaS self-serve, aplikasi mobile, broadcast engine | **DO NOT BUILD YET** |
+
+## Definisi BUG vs CHANGE vs FEATURE (anti scope-creep)
+- **BUG** = perilaku menyimpang dari SOW/spec → gratis (garansi 30 hari).
+- **CHANGE REQUEST** = modifikasi spec yang disepakati → quote & bayar dulu.
+- **FEATURE REQUEST** = kemampuan baru di luar lingkup → project/add-on terpisah.
+
