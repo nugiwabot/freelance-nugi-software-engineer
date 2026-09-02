@@ -248,6 +248,13 @@ h1, h2, h3, h4 {
 .nav-link:hover {
   color: var(--accent-cyan);
 }
+.nav-link-highlight {
+  color: var(--accent-violet-soft);
+  font-weight: 700;
+}
+.nav-link-highlight:hover {
+  color: var(--accent-cyan);
+}
 
 .mobile-toggle {
   display: none;
