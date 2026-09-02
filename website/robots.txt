@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nugi.biz.id/sitemap.xml
+Sitemap: https://www.nugi.biz.id/sitemap.xml
