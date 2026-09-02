@@ -10,8 +10,8 @@
 ---
 
 ## Cara Menjalankan
+- **Production/Vercel:** buka **https://www.nugi.biz.id/demo** (sudah terverifikasi live; tautan "Demo" ada di navbar homepage).
 - **Lokal:** buka `website/demo/index.html` langsung di browser (tanpa server).
-- **Production/Vercel:** buka `https://www.nugi.biz.id/demo` (otomatis via `cleanUrls`).
 - Tidak perlu `npm install` / build.
 
 ---
