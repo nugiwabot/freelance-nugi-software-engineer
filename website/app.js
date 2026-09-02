@@ -19,20 +19,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Mobile Navigation Menu Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
+  let isMobileMenuOpen = false;
+
+  const applyMobileMenuStyles = () => {
+    navMenu.style.display = 'flex';
+    navMenu.style.flexDirection = 'column';
+    navMenu.style.position = 'absolute';
+    navMenu.style.top = '100%';
+    navMenu.style.left = '0';
+    navMenu.style.width = '100%';
+    navMenu.style.background = 'rgba(12, 18, 32, 0.96)';
+    navMenu.style.padding = '20px';
+    navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+  };
+
+  const resetMobileMenuStyles = () => {
+    navMenu.style.display = '';
+    navMenu.style.flexDirection = '';
+    navMenu.style.position = '';
+    navMenu.style.top = '';
+    navMenu.style.left = '';
+    navMenu.style.width = '';
+    navMenu.style.background = '';
+    navMenu.style.padding = '';
+    navMenu.style.borderBottom = '';
+  };
+
+  const closeMobileMenu = () => {
+    if (!navMenu || !isMobileMenuOpen) return;
+    isMobileMenuOpen = false;
+    navMenu.style.display = 'none';
+  };
+
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      if (navMenu.style.display === 'flex') {
-        navMenu.style.display = 'none';
+      if (window.innerWidth > 900) return;
+      if (isMobileMenuOpen) {
+        closeMobileMenu();
       } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.background = 'rgba(12, 18, 32, 0.96)';
-        navMenu.style.padding = '20px';
-        navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+        isMobileMenuOpen = true;
+        applyMobileMenuStyles();
+      }
+    });
+
+    // Bersihkan inline style saat kembali ke viewport desktop (>=901px)
+    // agar aturan CSS desktop kembali berlaku.
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        isMobileMenuOpen = false;
+        resetMobileMenuStyles();
       }
     });
   }
@@ -258,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
           block: 'start'
         });
         // Auto close mobile menu if opened
-        if (window.innerWidth <= 900 && navMenu) {
-          navMenu.style.display = 'none';
+        if (window.innerWidth <= 900) {
+          closeMobileMenu();
         }
       }
     });
