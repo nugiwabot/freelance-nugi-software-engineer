@@ -264,4 +264,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 8. Conversion Tracking — klik WhatsApp (semua tombol wa.me)
+  const TRACKING = window.NUGI_TRACKING || {};
+
+  function trackNugiEvent(eventName, params) {
+    params = params || {};
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params);
+    }
+    if (typeof window.fbq === 'function') {
+      window.fbq('trackCustom', eventName, params);
+    }
+    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: eventName, ...params });
+    }
+  }
+  window.trackNugiEvent = trackNugiEvent;
+
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href*="wa.me"]');
+    if (link) {
+      const cta = link.getAttribute('data-cta') || link.id || 'wa-click';
+      trackNugiEvent('whatsapp_click', { cta_label: cta });
+    }
+  });
+
+  // 9. Konsultasi button → track klik saat buka WhatsApp
+  if (btnKirimKonsultasi) {
+    btnKirimKonsultasi.addEventListener('click', function () {
+      trackNugiEvent('consultation_click', { kebutuhan: selectKebutuhan.value || 'umum' });
+    });
+  }
 });

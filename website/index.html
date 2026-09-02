@@ -173,6 +173,55 @@
     ]
   }
   </script>
+
+  <!-- ============================================================
+       TRACKING CONFIG — siap pakai untuk iklan (Meta Pixel, GA4, Google Ads)
+       Isi ID berikut saat akun iklan/analytics siap. Selama kosong,
+       kode aman & tidak memuat apa pun.
+       ============================================================ -->
+  <script>
+    window.NUGI_TRACKING = {
+      metaPixelId: "",       // contoh: "1234567890123456"
+      ga4Id: "",             // contoh: "G-XXXXXXXXXX"
+      googleAdsId: ""        // contoh: "AW-1234567890"
+    };
+  </script>
+  <script>
+    (function () {
+      var cfg = window.NUGI_TRACKING || {};
+
+      // Meta Pixel (Facebook/Instagram Ads)
+      if (cfg.metaPixelId && cfg.metaPixelId.trim() !== "") {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+          n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', cfg.metaPixelId.trim());
+        fbq('track', 'PageView');
+      }
+
+      // Google Analytics 4 + Google Ads
+      if (cfg.ga4Id && cfg.ga4Id.trim() !== "") {
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=' + cfg.ga4Id.trim();
+        document.head.appendChild(g);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', cfg.ga4Id.trim());
+        if (cfg.googleAdsId && cfg.googleAdsId.trim() !== "") {
+          gtag('config', cfg.googleAdsId.trim());
+        }
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -368,6 +417,7 @@
             <li>✓ Respon lebih cepat tanpa menunggu admin kantor</li>
             <li>✓ Riwayat pencatatan waktu terima prospek</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20tertarik%20konsultasi%20Sistem%20Pengelolaan%20dan%20Rotasi%20Leads%20untuk%20tim%20saya." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-leads">Konsultasi Layanan Ini</a>
         </div>
 
         <div class="card solution-card">
@@ -383,6 +433,7 @@
             <li>✓ Database tersimpan aman di sistem milik Anda</li>
             <li>✓ Akses berbeda untuk Admin, Manager, dan Sales</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20ingin%20konsultasi%20pembuatan%20CRM%20untuk%20tim%20properti%20saya." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-crm">Konsultasi Layanan Ini</a>
         </div>
 
         <div class="card solution-card">
@@ -398,6 +449,7 @@
             <li>✓ Integrasi form website langsung membuka chat WA</li>
             <li>✓ Menghubungkan berbagai sumber traffic ke satu pintu</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20tertarik%20integrasi%20WhatsApp%20dan%20sistem%20untuk%20bisnis%20saya." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-wa">Konsultasi Layanan Ini</a>
         </div>
 
         <div class="card solution-card">
@@ -413,6 +465,7 @@
             <li>✓ Mudah diakses dari laptop maupun HP</li>
             <li>✓ Tidak perlu repot rekap manual setiap akhir pekan</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20ingin%20tahu%20lebih%20lanjut%20soal%20Dashboard%20Sales%20dan%20Manager." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-dashboard">Konsultasi Layanan Ini</a>
         </div>
 
         <div class="card solution-card">
@@ -428,6 +481,7 @@
             <li>✓ Tampilan galeri foto, tipe unit, dan denah yang rapi</li>
             <li>✓ Siap dipasang iklan Meta Ads & Google Ads</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20ingin%20konsultasi%20pembuatan%20Landing%20Page%20Properti%20yang%20cepat%20dan%20siap%20iklan." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-landingpage">Konsultasi Layanan Ini</a>
         </div>
 
         <div class="card solution-card">
@@ -443,6 +497,7 @@
             <li>✓ Dapat dikembangkan bertahap sesuai pertumbuhan tim</li>
             <li>✓ Pendampingan dan pelatihan cara pakai untuk tim</li>
           </ul>
+          <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20punya%20alur%20kerja%20khusus%20dan%20ingin%20mendiskusikan%20sistem%20custom%20untuk%20bisnis%20saya." target="_blank" class="btn btn-primary btn-sm btn-block solution-cta" data-cta="solusi-custom">Konsultasi Layanan Ini</a>
         </div>
       </div>
     </div>
@@ -607,6 +662,7 @@
               <span class="tag">Logika Rotasi Round-Robin</span>
               <span class="tag">Integrasi WhatsApp Gateway</span>
             </div>
+            <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20tertarik%20membangun%20sistem%20pembagian%20leads%20otomatis%20serupa%20untuk%20tim%20saya." target="_blank" class="btn btn-secondary btn-sm btn-block portfolio-cta" data-cta="porto-leads">Bangun Sistem Serupa</a>
           </div>
         </div>
 
@@ -631,6 +687,7 @@
               <span class="tag">Penyimpanan Database Cloud</span>
               <span class="tag">Hak Akses Tim & Role</span>
             </div>
+            <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20tertarik%20membangun%20CRM%20pemantau%20calon%20pembeli%20untuk%20kantor%20saya." target="_blank" class="btn btn-secondary btn-sm btn-block portfolio-cta" data-cta="porto-crm">Bangun Sistem Serupa</a>
           </div>
         </div>
 
@@ -655,6 +712,7 @@
               <span class="tag">Sales Link Cloner</span>
               <span class="tag">Manajemen Multi-Role</span>
             </div>
+            <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20tertarik%20sistem%20satu%20pintu%20operasional%20properti%20atau%20kost%20seperti%20ini." target="_blank" class="btn btn-secondary btn-sm btn-block portfolio-cta" data-cta="porto-pwa">Bangun Sistem Serupa</a>
           </div>
         </div>
 
@@ -679,6 +737,7 @@
               <span class="tag">Pelacak Pixel Meta & Google</span>
               <span class="tag">Mobile Responsive</span>
             </div>
+            <a href="https://wa.me/6287747584665?text=Halo%20Mas%20Nugi,%20saya%20butuh%20landing%20page%20properti%20cepat%20dan%20siap%20iklan%20untuk%20proyek%20saya." target="_blank" class="btn btn-secondary btn-sm btn-block portfolio-cta" data-cta="porto-landingpage">Bangun Landing Page Serupa</a>
           </div>
         </div>
       </div>

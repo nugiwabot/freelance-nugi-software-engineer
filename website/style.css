@@ -464,6 +464,16 @@ section[id], div[id], form[id] {
   color: var(--text-muted);
   margin-bottom: 6px;
 }
+.solution-card {
+  display: flex;
+  flex-direction: column;
+}
+.solution-card .feature-list {
+  flex-grow: 1;
+}
+.solution-cta {
+  margin-top: 20px;
+}
 .highlight-border {
   border-color: var(--border-highlight);
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.08);
@@ -801,6 +811,16 @@ section[id], div[id], form[id] {
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card .portfolio-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.portfolio-card .portfolio-desc {
+  flex-grow: 1;
 }
 .portfolio-card:hover {
   border-color: rgba(255, 255, 255, 0.2);
@@ -885,6 +905,9 @@ section[id], div[id], form[id] {
   padding: 2px 7px;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
+}
+.portfolio-cta {
+  margin-top: 18px;
 }
 
 /* Process Timeline */
