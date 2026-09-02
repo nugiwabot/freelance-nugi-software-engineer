@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Demo Alur Leads — NUGIPROPERTI (Simulasi)</title>
+  <meta name="description" content="Demo simulasi sistem distribusi leads properti: lead masuk, rotasi otomatis ke sales, follow-up, dan progres manager.">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+  <div class="demo-banner" id="demoBanner"></div>
+
+  <header class="demo-header">
+    <h1>Demo Sistem Leads &amp; WhatsApp Rotator</h1>
+    <p>Lead masuk &rarr; distribusi otomatis &rarr; sales menerima &rarr; follow-up &rarr; manager melihat progres.</p>
+  </header>
+
+  <main class="demo-container">
+
+    <!-- 1. Lead Masuk -->
+    <section class="panel">
+      <h2><span class="step-badge">1</span> Lead Masuk</h2>
+      <div class="row">
+        <select id="selectSource" aria-label="Sumber lead">
+          <option value="Meta Ads">Meta Ads</option>
+          <option value="Landing Page">Landing Page</option>
+          <option value="Google Ads">Google Ads</option>
+        </select>
+        <button class="btn btn-primary" id="btnSendLead">Simulasi Lead Masuk</button>
+        <button class="btn btn-ghost" id="btnReset">Reset</button>
+      </div>
+      <p class="hint">Mensimulasikan calon pembeli baru yang mengisi formulir iklan / landing page.</p>
+    </section>
+
+    <!-- 2. Distribusi -->
+    <section class="panel">
+      <h2><span class="step-badge">2</span> Distribusi Otomatis (Round-Robin)</h2>
+      <div id="distLog">Menunggu simulasi lead pertama&hellip;</div>
+    </section>
+
+    <!-- 3. Sales Menerima -->
+    <section class="panel">
+      <h2><span class="step-badge">3</span> Sales Menerima Lead (WhatsApp)</h2>
+      <div class="wa-card" id="waCard" hidden>
+        <div class="wa-head" id="waHead"></div>
+        <div class="wa-body" id="waBody"></div>
+        <div class="wa-meta" id="waMeta"></div>
+      </div>
+      <p class="hint">Notifikasi ke nomor WhatsApp pribadi sales (simulasi tampilan).</p>
+    </section>
+
+    <!-- 4. Follow-up -->
+    <section class="panel">
+      <h2><span class="step-badge">4</span> Follow-up &amp; Status</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Prospek</th><th>Sumber</th><th>Sales</th><th>Status</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTable"></tbody>
+        </table>
+      </div>
+      <p class="hint">Klik "Lanjut" untuk menggerakkan lead: Lead Baru &rarr; Dihubungi &rarr; Survey Lokasi &rarr; Booking &rarr; Closing.</p>
+    </section>
+
+    <!-- 5. Manager -->
+    <section class="panel">
+      <h2><span class="step-badge">5</span> Manager Melihat Progres</h2>
+      <div id="statsBox"></div>
+      <p class="hint">Rekap otomatis per status dan per sales — tanpa rekap Excel manual.</p>
+    </section>
+
+  </main>
+
+  <footer class="demo-footer">&copy; 2026 Nugi Digital Studio &middot; Demo simulasi untuk presentasi &middot; Data yang tampil adalah data fiktif</footer>
+
+  <script src="demo.js"></script>
+</body>
+</html>

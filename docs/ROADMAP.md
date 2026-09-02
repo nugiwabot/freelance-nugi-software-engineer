@@ -45,9 +45,10 @@ sebelum 3 klien berbayar manual. Jangan belanja iklan sebelum offer terbukti clo
 ### P0 — WAJIB (sebelum demo #1)
 - [x] **P0-4** Fix menu mobile (inline-style menu macet saat resize) — `website/app.js`.
       State-based toggle + reset inline style saat viewport >900px. **Selesai & tervalidasi.**
+- [x] **P0-3** Demo simulasi alur leads (siap presentasi) — `website/demo/` + tautan "Demo"
+      di nav utama. **Selesai (Phase 4).** Data dummy berlabel, tanpa data pribadi.
 - [ ] **P0-1** [X-REPO] Impor/hubungkan engine eksternal → env demo end-to-end.
 - [ ] **P0-2** [X-REPO] Data dummy bersih + akun demo tiap role; uji 2 lead bersamaan.
-- [ ] **P0-3** Ganti mockup statis → link demo live / video 60 detik alur leads.
 
 ### P1 — PENTING
 - [ ] tracking.js bersama (config+loader) di semua halaman; hapus duplikasi.

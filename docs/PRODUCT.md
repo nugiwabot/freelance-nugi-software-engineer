@@ -18,6 +18,8 @@
 - Website statis 9 halaman (Home, 4 layanan, /artikel + 3 artikel) — deploy Vercel.
 - Interaksi marketing: navbar scroll, menu mobile, FAQ accordion, slideshow authority, form konsultasi → wa.me.
 - SEO: JSON-LD, sitemap 10 URL, robots, canonical, OG/Twitter.
+- **Demo simulasi alur leads** (`website/demo/`, tautan "Demo" di nav): lead masuk → distribusi
+  round-robin → notifikasi WA sales → follow-up → progres manager. Data dummy berlabel, tanpa data pribadi.
 
 ## Fitur yang Masih Prototype / Belum Ada
 - **Core workflow (Lead masuk → tersimpan → distribusi → sales menerima → follow-up → manager melihat):**

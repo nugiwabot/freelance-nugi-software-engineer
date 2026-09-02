@@ -1,0 +1,236 @@
+/* ============================================================
+   NUGIPROPERTI — DEMO SIMULASI ALUR LEADS (Client Demo)
+   File: website/demo/demo.css
+   Styling terpisah agar tidak mengganggu halaman utama.
+   ============================================================ */
+
+:root {
+  --bg-dark: #070b14;
+  --bg-surface: #0c1220;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent-violet: #8b5cf6;
+  --accent-cyan: #38bdf8;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #38bdf8 100%);
+  --radius-md: 12px;
+  --radius-sm: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.demo-banner {
+  background: linear-gradient(90deg, var(--accent-amber), var(--accent-rose));
+  color: #fff;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  letter-spacing: 0.02em;
+}
+
+.demo-header {
+  padding: 40px 24px 24px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.16), transparent 60%),
+    var(--bg-dark);
+}
+
+.demo-header h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.demo-header p { color: var(--text-muted); margin-top: 6px; font-size: 0.95rem; }
+
+.demo-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 24px 64px;
+}
+
+.panel {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+select, .btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+}
+
+select {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 12px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 10px 18px;
+  font-weight: 700;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+}
+
+.hint { color: var(--text-dim); font-size: 0.82rem; margin-top: 12px; }
+
+#distLog {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed rgba(139, 92, 246, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  min-height: 46px;
+}
+
+.wa-card {
+  background: #075e54;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  max-width: 420px;
+  margin-top: 12px;
+}
+
+.wa-card[hidden] { display: none; }
+
+.wa-head {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.wa-body {
+  padding: 14px;
+  font-size: 0.88rem;
+  background: #055148;
+}
+
+.wa-meta {
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  min-width: 620px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+th {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-mini {
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: transparent;
+  color: var(--accent-cyan);
+  cursor: pointer;
+}
+
+.btn-mini:disabled { opacity: 0.4; cursor: default; }
+
+.st {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.st.lead-baru { background: rgba(148, 163, 184, 0.15); color: var(--text-muted); }
+.st.dihubungi { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); }
+.st.survey-lokasi { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); }
+.st.booking { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+.st.closing { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+
+#statsBox { font-size: 0.9rem; }
+#statsBox p { margin-bottom: 8px; }
+.muted { color: var(--text-dim); }
+
+.demo-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
