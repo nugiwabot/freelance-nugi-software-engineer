@@ -113,6 +113,7 @@
     var elLog = $('distLog');
     var elWaCard = $('waCard');
     var elWaHead = $('waHead');
+    var elWaAvatar = $('waAvatar');
     var elWaBody = $('waBody');
     var elWaMeta = $('waMeta');
     var elTable = $('leadsTable');
@@ -124,25 +125,35 @@
 
     function fmtStatus(s) { return '<span class="st ' + s.replace(/\s+/g, '-').toLowerCase() + '">' + s + '</span>'; }
 
+    function initials(name) {
+      var parts = String(name || '').replace(/[^a-zA-Z ]/g, '').trim().split(/\s+/);
+      var a = (parts[0] || 'S').charAt(0);
+      var b = parts.length > 1 ? parts[parts.length - 1].charAt(0) : '';
+      return (a + b).toUpperCase();
+    }
+
     function renderDist(lead) {
-      elLog.innerHTML = 'Lead ' + lead.id + ' masuk dari <b>' + lead.source + '</b> (' + lead.createdAt + ') → didistribusikan ke <b>' + lead.sales + '</b> pukul ' + lead.assignedAt + '.';
+      elLog.innerHTML =
+        'Lead <b>' + lead.id + '</b> masuk dari <b>' + lead.source + '</b> (' + lead.createdAt + ')' +
+        ' &rarr; didistribusikan ke <b>' + lead.sales + '</b> pukul ' + lead.assignedAt + '.';
     }
 
     function renderWa(lead) {
       elWaCard.hidden = false;
-      elWaHead.textContent = lead.sales + ' — WhatsApp (Simulasi)';
+      elWaAvatar.textContent = initials(lead.sales);
+      elWaHead.textContent = lead.sales + ' — WhatsApp';
       elWaBody.innerHTML =
         '<p><b>' + lead.name + '</b></p>' +
         '<p>Telepon: ' + lead.phone + '</p>' +
         '<p>Catatan: ' + lead.note + '</p>' +
-        '<p>Sumber: ' + lead.source + ' · Masuk: ' + lead.createdAt + '</p>';
+        '<p>Sumber: ' + lead.source + ' &middot; Masuk: ' + lead.createdAt + '</p>';
       elWaMeta.textContent = 'Notifikasi terkirim ke ' + lead.salesPhone + ' dalam <10 detik (simulasi).';
     }
 
     function renderTable() {
       var leads = core.getLeads();
       if (leads.length === 0) {
-        elTable.innerHTML = '<tr><td colspan="6">Belum ada lead. Klik "Simulasi Lead Masuk" di atas.</td></tr>';
+        elTable.innerHTML = '<tr><td colspan="6">Belum ada lead. Klik "Simulasi Lead Baru" di atas.</td></tr>';
         return;
       }
       var html = '';
@@ -166,15 +177,31 @@
         elStats.innerHTML = '<p class="muted">Belum ada data. Mulai dengan simulasi lead pertama.</p>';
         return;
       }
-      var html = '<p><b>Total Lead: ' + s.total + '</b></p>';
+
+      var leadBaru = s.byStatus['Lead Baru'] || 0;
+      var dihubungi = s.byStatus['Dihubungi'] || 0;
+      var survey = s.byStatus['Survey Lokasi'] || 0;
+      var booking = s.byStatus['Booking'] || 0;
+      var closing = s.byStatus['Closing'] || 0;
+
+      var html =
+        '<div class="metric-grid">' +
+        '<div class="metric-card"><div class="m-value">' + s.total + '</div><div class="m-label">Lead Total</div></div>' +
+        '<div class="metric-card"><div class="m-value">' + (leadBaru + dihubungi) + '</div><div class="m-label">Dalam Follow-Up</div></div>' +
+        '<div class="metric-card"><div class="m-value">' + survey + '</div><div class="m-label">Survey</div></div>' +
+        '<div class="metric-card"><div class="m-value">' + booking + '</div><div class="m-label">Booking</div></div>' +
+        '<div class="metric-card"><div class="m-value">' + closing + '</div><div class="m-label">Closing</div></div>' +
+        '</div>';
+
       html += '<p>Per Status: ';
       Object.keys(s.byStatus).forEach(function (k) {
-        if (s.byStatus[k] > 0) html += fmtStatus(k) + ' ×' + s.byStatus[k] + ' ';
+        if (s.byStatus[k] > 0) html += fmtStatus(k) + ' &times;' + s.byStatus[k] + ' ';
       });
       html += '</p>';
       html += '<p>Per Sales: ';
-      Object.keys(s.bySales).forEach(function (k) { html += '<b>' + k + '</b>: ' + s.bySales[k] + ' · '; });
+      Object.keys(s.bySales).forEach(function (k) { html += '<b>' + k + '</b>: ' + s.bySales[k] + ' &middot; '; });
       html += '</p>';
+
       elStats.innerHTML = html;
     }
 
@@ -205,7 +232,7 @@
       renderAll();
     });
 
-    elBanner.textContent = 'MODE DEMO · Data simulasi (bukan data asli) · Klik "Simulasi Lead Masuk" untuk memulai';
+    elBanner.textContent = 'MODE DEMO · Data simulasi (bukan data asli) · Klik "Simulasi Lead Baru" untuk memulai';
     renderAll();
   }
 })(typeof window !== 'undefined' ? window : globalThis);

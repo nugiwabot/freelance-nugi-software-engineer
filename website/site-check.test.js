@@ -54,6 +54,13 @@ assert(/Estimasi sistem inti/.test(home), 'proses mencantumkan estimasi durasi')
 assert(/Biaya layanan pihak ketiga/.test(home), 'pricing mencantumkan disclaimer biaya pihak ketiga');
 assert(/Berapa lama pengerjaannya\?/.test(home), 'FAQ berisi durasi pengerjaan');
 assert(/Konsultasi Gratis via WhatsApp/.test(home), 'CTA final konsultasi ada');
+assert(/Rp3,5 juta/.test(home), 'hero memuat price hint implementasi mulai Rp3,5 juta');
+assert(/Coba Simulasi Alur Lead/.test(home), 'CTA solution section mengarah ke simulasi');
+assert(/Kerahasiaan data dan informasi bisnis Anda kami jaga/.test(home), 'klaim keamanan tidak absolut');
+assert(!/dijamin 100% aman/.test(home), 'tidak ada klaim "dijamin 100% aman"');
+assert(!/cloud terenkripsi/.test(home), 'tidak ada klaim "cloud terenkripsi" yang tidak terbukti');
+assert(!/Skor 95\+/.test(home), 'tidak ada klaim skor 95+ di homepage');
+assert(!/Loading super ringan \(&lt;1\.5 detik\)/.test(home), 'tidak ada klaim durasi loading absolut');
 
 // --- Demo page label ---
 assert(/MODE DEMO/.test(demoJs), 'demo.js menampilkan banner MODE DEMO');
